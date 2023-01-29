@@ -8,6 +8,8 @@ export const buildLib = async (libName, lib) => {
   const provinces = await lib.getProvinces();
   const citiesMunicipalities = await lib.getCitiesMunicipalities(provinces);
 
+  console.log(regions)
+
   await writeJsonFile(resolve(`${__dirname}/json/${libName}/regions.json`), regions);
   await writeJsonFile(resolve(`${__dirname}/json/${libName}/provinces.json`), provinces);
   await writeJsonFile(resolve(`${__dirname}/json/${libName}/citiesMunicipalities.json`), citiesMunicipalities);
