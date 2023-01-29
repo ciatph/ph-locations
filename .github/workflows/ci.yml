@@ -6,8 +6,8 @@ name: CI
 on:
   push:
     branches: [ master, develop ]
-  pull_request:
-    branches: [ master, develop ]
+  # pull_request:
+  #  branches: [ master, develop ]
 
 jobs:
   build:
@@ -29,3 +29,14 @@ jobs:
     - run: npm test
       env:
         CI: true
+
+    - name: Archive Development Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: data
+        path: |
+          data/regions.json
+          data/provinces.json
+          data/citiesMunicipalities.json
+        retention-days: 1
+

@@ -8,9 +8,9 @@ export const buildLib = async (libName, lib) => {
   const provinces = await lib.getProvinces();
   const citiesMunicipalities = await lib.getCitiesMunicipalities(provinces);
 
-  await writeJsonFile(resolve(`${__dirname}/json/${libName}/regions.json`), regions);
-  await writeJsonFile(resolve(`${__dirname}/json/${libName}/provinces.json`), provinces);
-  await writeJsonFile(resolve(`${__dirname}/json/${libName}/citiesMunicipalities.json`), citiesMunicipalities);
+  await writeJsonFile(resolve(`${__dirname}/data/${libName}/regions.json`), regions);
+  await writeJsonFile(resolve(`${__dirname}/data/${libName}/provinces.json`), provinces);
+  await writeJsonFile(resolve(`${__dirname}/data/${libName}/citiesMunicipalities.json`), citiesMunicipalities);
 };
 
 export const iso3166 = () => buildLib('iso3166', libISO3166);
